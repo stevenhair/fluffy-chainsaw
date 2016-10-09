@@ -12,11 +12,12 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+admitted = X(find(y == 1), :);
+not_admitted = X(find(y == 0), :);
 
-
-
-
-
+% TODO: figure out what the linespec is supposed to be
+scatter(admitted(1), admitted(2));  %, 'k+', 'LineWidth', 2, 'MarkerSize', 7);
+scatter(not_admitted(1), not_admitted(2));  %, 'ko', 'MarkerFaceColor', 'y', 'MarkerSize', 7);
 
 
 
