@@ -68,9 +68,9 @@ z2 = a1*Theta1';
 a2 = [ones(m, 1) sigmoid(z2)];
 z3 = a2*Theta2';
 a3 = sigmoid(z3);
-J = 1/m*sum(sum(-y_matrix.*log(a3) - (1-y_matrix).*log(1-a3)));
 
-
+reg_term = lambda/(2*m)*(sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2)));
+J = 1/m*sum(sum(-y_matrix.*log(a3) - (1-y_matrix).*log(1-a3))) + reg_term;
 
 
 
