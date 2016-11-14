@@ -21,11 +21,12 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+pkg load statistics
 
-
-
-
-
+distances = pdist2(X, centroids, 'sqeuclidean');
+for i = 1:length(distances)
+    idx(i) = find(distances(i,:) == min(distances(i,:)));
+end
 
 % =============================================================
 
