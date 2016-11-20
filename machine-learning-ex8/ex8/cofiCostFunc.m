@@ -43,8 +43,8 @@ Theta_grad = zeros(size(Theta));
 inner = (X*Theta' - Y);
 J = 1/2*sum((inner.^2)(find(R))) + (lambda/2*sum(sum(Theta.^2))) + lambda/2*sum(sum(X.^2));
 
-X_grad = (inner.*R)*Theta;
-Theta_grad = (inner.*R)'*X;
+X_grad = (inner.*R)*Theta + lambda*X;
+Theta_grad = (inner.*R)'*X + lambda*Theta;
 
 
 
